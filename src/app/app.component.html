@@ -1,0 +1,37 @@
+<!-- <input type="text"  #titleInput>
+    
+    <Label for="apps">Choose the apps: </Label>
+    <mat-select name="apps" #appName multiple>
+        <option value="league">League of Legends</option>
+        <option value="valorant">Valorant</option>
+        <option value="Genshin">Genshin Impact</option>
+        <option value="notepad">notepad</option>
+    </select> -->
+<body >
+<img src="./assets/logo.png">
+<form class="form" [formGroup]="FocusValueForm" (ngSubmit)="submit()">
+    <mat-form-field>
+        <div>
+            <mat-label>Apps:</mat-label>
+            <mat-select formControlName="apps" multiple>
+                <mat-option *ngFor="let app of appList" [value]="app.exe">{{app.name}}</mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
+    <mat-form-field>
+        <div>
+            <mat-label>Time in minutes</mat-label>
+            <input matInput formControlName="time" placeholder="s" >
+        </div>
+    </mat-form-field>
+    <div>
+        <button mat-raised-button type="submit" color="primary"  > {{submitButton}}</button>
+    </div>
+</form>
+<p> {{timeLeft}} Minutes Left...</p>
+
+<div>
+    <button mat-raised-button color="primary" (click)= Cancel()> Cancel</button>
+</div>
+
+</body>
